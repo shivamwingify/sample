@@ -36,8 +36,8 @@
   </script>
 </head>
 <body>
-    <h1> My sample Blog </h1>
-    <script type="text/javascript">
+	<h1> My sample Blog </h1>
+	<script type="text/javascript">
 		// select the target node
 		var target = document.querySelector('body');
 		// create an observer instance
@@ -46,15 +46,15 @@
 			if (mutation.addedNodes && mutation.addedNodes.length) {
 			    var node = mutation.addedNodes[0];
 			    if (node.classList && node.classList.value === 'pushcrew-chrome-style-notification pushcrew-chrome-style-notification-safari') {
-				if (document.getElementsByClassName('pushcrew-notification-message-safari')[0]) {
-					var closeBtn = document.getElementsByClassName('pushcrew-chrome-style-notification-btn')[0];
-					var allowBtn = document.getElementsByClassName('pushcrew-chrome-style-notification-btn')[1];
-					closeBtn.innerHTML = 'Blocca notifiche';
-					allowBtn.innerHTML = 'Consenti notifiche';
-					document.getElementsByClassName('pushcrew-notification-title-safari')[0].innerHTML = 'Ricevi per primo le novità e le promozioni Napapijri.';
-					document.getElementsByClassName('pushcrew-notification-message-safari')[0].innerHTML = 'Confermo di aver letto e compreso l’informativa <a href="https://www.napapijri.IT" target="_blank" style="text-decoration: none;"> <u>sulla privacy di</u> </a> Napapijri e acconsento all’elaborazione dei miei dati personali per finalità di marketing e di profilazione.';
-					observer.disconnect();
-				}
+					if (document.getElementsByClassName('pushcrew-notification-message-safari')[0]) {
+					    var closeBtn = document.getElementsByClassName('pushcrew-chrome-style-notification-btn')[0];
+					    var allowBtn = document.getElementsByClassName('pushcrew-chrome-style-notification-btn')[1];
+					    closeBtn.innerHTML = 'Benachrichtungen ablehnen';
+					    allowBtn.innerHTML = 'Benachrichtigungen zulassen';
+						document.getElementsByClassName('pushcrew-notification-title-safari')[0].innerHTML = 'Erhalte als Erstes die Neuigkeiten und Angebote von Napapijri.';
+					    document.getElementsByClassName('pushcrew-notification-message-safari')[0].innerHTML = 'Ich habe die <a href="https://www.napapijri.de" target="_blank" style="text-decoration: none;"> <u>Datenschutzerklärung</u> </a> von Napapijri gelesen, akzeptiere sie und bin mit der Verarbeitung meiner personenbezogenen Daten zu Marketingzwecken sowie zur Profilerstellung einverstanden.';
+					    observer.disconnect();
+					}
 			    }
 			}
 		    });
