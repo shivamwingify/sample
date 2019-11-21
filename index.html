@@ -47,12 +47,13 @@
 			    var node = mutation.addedNodes[0];
 			    if (node.classList && node.classList.value === 'pushcrew-chrome-style-notification pushcrew-chrome-style-notification-safari') {
 				if (document.getElementsByClassName('pushcrew-notification-message-safari')[0]) {
-				    var closeBtn = document.getElementsByClassName('pushcrew-chrome-style-notification-btn')[0];
-				    var allowBtn = document.getElementsByClassName('pushcrew-chrome-style-notification-btn')[1];
-				    closeBtn.innerHTML = 'Block Notifications';
-				    allowBtn.innerHTML = 'Allow Notifications';
-				    document.getElementsByClassName('pushcrew-notification-message-safari')[0].innerHTML = 'I have read Napapijri\'s <a href="https://www.napapijri.co.uk/help/privacy.html" target="_blank" style="text-decoration: none;"> <u>Privacy Policy</u> </a> and I consent to the processing of my personal data for marketing and profiling purpose.';
-				    observer.disconnect();
+					var closeBtn = document.getElementsByClassName('pushcrew-chrome-style-notification-btn')[0];
+					var allowBtn = document.getElementsByClassName('pushcrew-chrome-style-notification-btn')[1];
+					closeBtn.innerHTML = 'Block Notifications';
+					allowBtn.innerHTML = 'Allow Notifications';
+					document.getElementsByClassName('pushcrew-notification-title-safari')[0].innerHTML = 'Ricevi per primo le novità e le promozioni Napapijri.';
+					document.getElementsByClassName('pushcrew-notification-message-safari')[0].innerHTML = 'I have read Napapijri\'s <a href="https://www.napapijri.co.uk/help/privacy.html" target="_blank" style="text-decoration: none;"> <u>Privacy Policy</u> </a> and I consent to the processing of my personal data for marketing and profiling purpose.';
+					observer.disconnect();
 				}
 			    }
 			}
