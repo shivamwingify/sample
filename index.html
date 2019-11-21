@@ -1,5 +1,27 @@
 <html>
 <head>
+  <style>
+    .pushcrew-chrome-style-notification-safari {
+      background-color: #FFF !important;
+    }
+    .pushcrew-chrome-style-notification-safari * {
+      color: inherit !important;
+    }
+    .pushcrew-chrome-style-notification-safari .pushcrew-chrome-style-notification-btn.pushcrew-btn-allow {
+      border: 1px solid #f5a019 !important;
+      border-radius: 0px !important;
+      background: #fd6c2e !important;
+      width: 146px !important;
+    }
+    div.pushcrew-chrome-style-notification-safari .pushcrew-chrome-style-notification-btn.pushcrew-btn-close {
+      border: 1px solid #362d2e !important;
+      border-radius: 0px !important;
+      background: #362d2e !important;
+      color: #FFF!important;
+      width: 146px !important;
+      margin-right: 10px !important;
+    }
+  </style>
   <script type="text/javascript">
     (function(p,u,s,h){
         p._pcq=p._pcq||[];
@@ -14,6 +36,32 @@
   </script>
 </head>
 <body>
-<h1> My sample Blog </h1>
+    <h1> My sample Blog </h1>
+    <script type="text/javascript">
+		// select the target node
+		var target = document.querySelector('body');
+		// create an observer instance
+		var observer = new MutationObserver(function(mutations) {
+		    mutations.forEach(function(mutation) {
+			if (mutation.addedNodes && mutation.addedNodes.length) {
+			    var node = mutation.addedNodes[0];
+			    if (node.classList && node.classList.value === 'pushcrew-chrome-style-notification pushcrew-chrome-style-notification-safari') {
+				if (document.getElementsByClassName('pushcrew-notification-message-safari')[0]) {
+				    var closeBtn = document.getElementsByClassName('pushcrew-chrome-style-notification-btn')[0];
+				    var allowBtn = document.getElementsByClassName('pushcrew-chrome-style-notification-btn')[1];
+				    closeBtn.innerHTML = 'Block Notifications';
+				    allowBtn.innerHTML = 'Allow Notifications';
+				    document.getElementsByClassName('pushcrew-notification-message-safari')[0].innerHTML = 'I have read Napapijri\'s <a href="https://www.napapijri.co.uk/help/privacy.html" target="_blank" style="text-decoration: none;"> <u>Privacy Policy</u> </a> and I consent to the processing of my personal data for marketing and profiling purpose.';
+				    observer.disconnect();
+				}
+			    }
+			}
+		    });
+		});
+		// configuration of the observer:
+		var config = { attributes: true, childList: true, characterData: true }
+		// pass in the target node, as well as the observer options
+		observer.observe(target, config);
+	</script>
 </body>
 </html>
